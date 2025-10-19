@@ -1,3 +1,8 @@
 # Thunderstore CLI build output
 build/
+#packages/
 token.txt
+
+src/icon.png
+src/LICENSE
+src/manifest.json

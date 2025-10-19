@@ -1,0 +1,31 @@
+{
+    "manifestVersion": 1,
+    "name": "DoppleDankster-BirthdayParty",
+    "authorName": "DoppleDankster",
+    "websiteUrl": "",
+    "displayName": "BirthdayParty",
+    "description": "BirthdayMod",
+    "gameVersion": "",
+    "networkMode": "",
+    "packageType": "",
+    "installMode": "",
+    "installedAtTime": 0,
+    "loaders": [],
+    "dependencies": [
+        "Hell2Modding-Hell2Modding-1.0.28",
+        "SGG_Modding-ENVY-1.1.0",
+        "SGG_Modding-Chalk-2.0.2",
+        "SGG_Modding-ReLoad-1.0.1",
+        "SGG_Modding-SJSON-1.0.0",
+        "SGG_Modding-ModUtil-4.0.0"
+    ],
+    "incompatibilities": [],
+    "optionalDependencies": [],
+    "versionNumber": {
+        "major": 1,
+        "minor": 0,
+        "patch": 0
+    },
+    "enabled": true,
+    "icon": ""
+}

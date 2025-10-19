@@ -5,6 +5,7 @@
 -- this file will be reloaded if it changes during gameplay,
 -- 	so only assign to values or define things here.
 
+
 function sjson_ShellText(data)
 	for _,v in ipairs(data.Texts) do
 		if v.Id == 'MainMenuScreen_PlayGame' then
