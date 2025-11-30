@@ -14,100 +14,88 @@ game.david = mod
 local SpawnData = {
     Frinos = {
         Packages = {"FrogFamiliar"},
-        Offset = {X = -3300,Y = -500},
+        Offset = {X = -3100,Y = -500},
         UnitName = "FrogFamiliar",
         TableData = game.EnemyData.FrogFamiliar,
         Angle = 70,
         Scale = 4,
+        Track= true,
     },
     Nyx = {
         Packages = {"Nyx"},
-        Offset = {X = -550,Y = 350},
+        Offset = {X = 300,Y = 1050},
         UnitName = "NPC_Nyx_Story_01",
         TableData = game.EnemyData.NPC_Nyx_Story_01,
-        Angle= 120
+        Angle= 120,
+        Track= true,
     },
-
     Cerberus = {
         Packages = {"Cerberus","Hades","BiomeI"},
-        Offset = {X = 1350,Y = 0},
+        Offset = {X = 500,Y = 0},
         UnitName = "NPC_Cerberus_Field_01",
         TableData = game.EnemyData.NPC_Cerberus_Field_01,
-        Scale = 0.8,
+        Scale = 0.5,
+        Track= true,
         Angle = 140
     },
     Zagreus = {
         Packages = {"Zagreus","BiomeC"},
         Offset = {X = -700,Y = -450},
         UnitName = "NPC_Zagreus_01",
+        Track= true,
         TableData = game.EnemyData.NPC_Zagreus_01
     },
-    Selene ={
-        Packages = {"Selene"},
-        Offset = {X = 1950,Y = 450},
-        UnitName = "NPC_Selene_01",
-        TableData = game.EnemyData.NPC_Selene_01
-    },
+    
     Hades = {
         Packages = {"Hades","BiomeI"},
         Offset = {X = 300,Y = -250},
         UnitName = "NPC_Hades_02",
+        Track= true,
         TableData = game.EnemyData.NPC_Hades_02
     },
     Charon = {
         Packages = {"Charon"},
         Offset = {X = -900,Y = 400},
         UnitName = "NPC_Charon_01",
+        Track= true,
         TableData = game.EnemyData.NPC_Charon_01
     },
     Persephone = {
         Packages = {"Persephone","BiomeI"},
-        Offset = {X = -3500,Y = 600},
+        Offset = {X = -200,Y = 100},
         UnitName = "NPC_Persephone_01",
+        Track= true,
         TableData = game.EnemyData.NPC_Persephone_01
     },
     Dionysus = {
         Packages = {"Dionysus","BiomeP"},
-        Offset = {X = -3700,Y = 350},
+        Offset = {X = -1100,Y = -150},
         UnitName = "NPC_Dionysus_01",
+        Track= true,
         TableData = game.EnemyData.NPC_Dionysus_01
     },
-    -- Medea = {
-    --     Packages = {"Medea","BiomeN"},
-    --     Offset = {X = -200,Y = 150},
-    --     UnitName = "NPC_Medea_01",
-    --     TableData = game.EnemyData.NPC_Medea_01
-    -- },
-    -- Circe = {
-    --     Packages = {"Circe","BiomeO"},
-    --     Offset = {X = -2500,Y = -150},
-    --     UnitName = "NPC_Circe_01",
-    --     TableData = game.EnemyData.NPC_Circe_01
-    -- },
-    -- Zeus = {
-    --     Packages = {"Zeus","BiomeQEnding"},
-    --     Offset = {X = 450,Y = 250},
-    --     UnitName = "NPC_Zeus_Story_01",
-    --     TableData = game.EnemyData.NPC_Zeus_Story_01
-    -- },
-    -- Hera = {
-    --     Packages = {"Hera","BiomeQEnding"},
-    --     Offset = {X = 1800,Y = 0},
-    --     UnitName = "NPC_Hera_Story_01",
-    --     TableData = game.EnemyData.NPC_Hera_Story_01
-    -- },
-    -- Hermes = {
-    --     Packages = {"Hermes","BiomeQ"},
-    --     Offset = {X = -1200,Y = 150},
-    --     UnitName = "NPC_Hermes_01",
-    --     TableData = game.EnemyData.NPC_Hermes_01
-    -- },
-    -- Icarus = {
-    --     Packages = {"Icarus","BiomeO"},
-    --     Offset = {X = 2550,Y = 750},
-    --     UnitName = "NPC_Icarus_01",
-    --     TableData = game.EnemyData.NPC_Icarus_01
-    -- },
+    Zeus = {
+        Packages = {"Zeus","BiomeQEnding"},
+        Offset = {X = 700,Y = 300},
+        UnitName = "NPC_Zeus_Story_01",
+        Track= true,
+        TableData = game.EnemyData.NPC_Zeus_Story_01
+    },
+    Narcissus = {
+        Packages = {"Narcissus","BiomeH"},
+        Offset = {X = -1250,Y = 1800},
+        UnitName = "NPC_Narcissus_Field_01",
+        Track= false,
+        Angle = 120,
+        TableData = game.EnemyData.NPC_Narcissus_Field_01
+    },
+    Eris = {
+        Packages = {"Eris"},
+        Offset = {X = -2250,Y = -300},
+        UnitName = "NPC_Eris_01",
+        Track= true,
+        TableData = game.EnemyData.NPC_Eris_01
+    },
     
 }
 function mod.Spawn(name)
@@ -138,22 +126,21 @@ function mod.Spawn(name)
     SpawnData[name].ObjectId = newUnit.ObjectId
     if name == "Cerberus" then
         SetScale({Id = newUnit.ObjectId, Fraction = entry.Scale}) 
-        SetAngle({Id=newUnit.ObjectId, Angle=entry.Angle})
     end
 
     if name == "Frinos" then
         LoadPackages({Names = {customFrinosPackage}})
         SetScale({Id = newUnit.ObjectId, Fraction = entry.Scale}) 
-        SetAngle({Id=newUnit.ObjectId, Angle=entry.Angle})
     end
 
-    if name ~= "Artemis" then
-        Track({ Ids = { newUnit.ObjectId }, DestinationIds = { CurrentRun.Hero.ObjectId } })
-    end
     if name == "Dionysus" then
         LoadPackages({Names = { _PLUGIN.guid .. "Adolf"}})
     end
-    
+    if entry.Track then
+        Track({ Ids = { newUnit.ObjectId }, DestinationIds = { CurrentRun.Hero.ObjectId } })
+    else
+        SetAngle({Id=newUnit.ObjectId, Angle=entry.Angle})
+    end
     CheckAvailableTextLines(newUnit)
 end
 
@@ -215,4 +202,11 @@ modutil.mod.Path.Wrap("DeathAreaRoomTransition", function(base, source, args)
     mod.InitCrossroad()
   end
 end)
+
+
+-- modutil.mod.Path.Wrap("StartDeathLoop", function(base, source, args)
+--   base(source, args)
+--   mod.DestroyBase()
+--   mod.InitCrossroad()
+-- end)
 

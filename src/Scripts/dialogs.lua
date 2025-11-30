@@ -6,11 +6,40 @@ local function OverrideZagreusChat()
         Name = chatName,
         GameStateRequirements={},
         {
-            Text = "text",
+           Text =  "C'est l'anniversaire dans tous les recoins"
+        },
+        {
+            Text = "c'est presque tous les ans qu'on a l'anniversaire, grâce à cet anni c'est la joie c'est pratique", 
+        },
+        {
+            Text = "c'est au moins un principe à retenir pour faire la frite, cette année c'est bien l'anniversaire tombe à pic !", 
         },
     }
     table.insert(game.NarrativeData.NPC_Zagreus_01.InteractTextLinePriorities,1,chatName)
 end
+
+local function OverrideNemesisChat()
+    local chatName = _PLUGIN.guid .. '-' .."Nemesis"
+
+    LoadPackages({"Nemesis"})
+    game.EnemyData.NPC_Nemesis_01.InteractTextLineSets[chatName] = {
+
+        Name = chatName,
+        GameStateRequirements={},
+        {
+            Text = "Tant de mal se répand dehors, sans personne pour l’arrêter… Et pourtant, nous sommes tous rassemblés pour célébrer ton anniversaire",
+        },
+        {
+            Text = "Qu’est-ce que tu fais encore là ? Tu attends vraiment quelque chose de moi ?",
+        },
+        {
+			Portrait = "Portrait_Nemesis_Averted_01",			
+            Text = "Joyeux anniversaire… Maintenant, disparais",
+        },
+    }
+    table.insert(game.NarrativeData.NPC_Nemesis_01.InteractTextLinePriorities,1,chatName)
+end
+
 local function OverrideCharonChat()
     local chatName = _PLUGIN.guid .. '-' .."Charon" 
     game.NarrativeData.NPC_Charon_01 = {InteractTextLinePriorities = {}, GiftTextLinePriorities = {}}
@@ -35,7 +64,7 @@ local function OverrideNyxChat()
         Name = chatName,
         GameStateRequirements={},
         {
-            Text = " En ce cycle nouveau, je t’accorde mes bénédictions", 
+            Text = "En ce cycle nouveau, je t’accorde mes bénédictions", 
         },
         {
             Text = "que ta curiosité t’ouvre encore des mondes", 
@@ -151,11 +180,15 @@ local function OverrideDoraChat()
         GameStateRequirements={},
         {
             Portrait = "Portrait_Dora_Hardhat",
-            Text = "Bon l'alcolique on va le ranger vers la tarverne hein...",
+            Text = "Guillaume près des autres grenouilles c'est plus RP...",
+        },
+        {
+            Portrait = "Portrait_Dora_Hardhat",
+            Text = "Nathan pas trop de loin de sa kween sinon il va râler...",
         },
         {
             Portrait = "Portrait_Dora_Thoughtful_01",
-            Text = "Nathan pas trop de loin de sa kween sinon il va râler...",
+            Text = "Bon ça à l'air pas mal comme ça",
         },
         {
             Portrait = "Portrait_Dora_Default_01",
@@ -175,31 +208,29 @@ local function OverrideDoraChat()
     table.insert(game.NarrativeData.NPC_Dora_01.InteractTextLinePriorities,1,chatName)
 end
 
-local function OverrideDora2Chat()
-    local chatName = _PLUGIN.guid .. '-' .."Dora2"
-    LoadPackages({"Dora"})
-
-    game.EnemyData.NPC_Dora_02.InteractTextLineSets[chatName] = {
-        Name = chatName,
-        GameStateRequirements={},
-        {
-            Portrait = "Portrait_Dora_Spooky_01",
-            Text = "Vite tout le monde en place... ",
-            Emote = "PortraitEmoteFiredUp",
-        },
-    }
-    table.insert(game.NarrativeData.NPC_Dora_02.InteractTextLinePriorities,1,chatName)
-end
-
-
 local function OverrideZeusChat()
     local chatName = _PLUGIN.guid .. '-' .."Zeus" 
+    LoadPackages({"Zeus","BiomeQEnding"})
     game.EnemyData.NPC_Zeus_Story_01.InteractTextLineSets[chatName] = {
+
 
         Name = chatName,
         GameStateRequirements={},
         {
-            Text = "text",
+            Portrait = "Portrait_Zeus_Pleased_01",
+            Text = "Je prend note de tes efforts pour rattraper mon age avancé. Pathétique.",
+        },
+        {
+            Text = "Pas le peine de courir après Kronos, tu ne me rattrapera jamais.",
+        },
+        {
+            Text = "Alors profite bien de ta petite fête, lance ton petit run, et reviens boire un coup une fois que tu te seras fait peter le huk par un titan ou un poulpe."
+        },
+        {
+            Text = "Comment-ça ? moi ? Grumpy ? Non, cela n'a absolument AUCUN Rapport avec la partie de Commander que…",
+        },
+        {
+            Text = "Putain d'Y'shtola...",
         },
     }
     table.insert(game.NarrativeData.NPC_Zeus_Story_01.InteractTextLinePriorities,1,chatName)
@@ -256,6 +287,43 @@ local function OverrideFrinosChat()
     table.insert(game.NarrativeData.FrogFamiliar.InteractTextLinePriorities,1,chatName)
 end
 
+local function OverrideNarcissusChat()
+    local chatName = _PLUGIN.guid .. '-' .."Narcissus" 
+    
+    game.EnemyData.NPC_Narcissus_Field_01.InteractTextLineSets = {}
+    game.EnemyData.NPC_Narcissus_Field_01.InteractTextLineSets[chatName] = {
+
+        Name = chatName,
+        GameStateRequirements={},
+        {
+            Text = "{#Emph}Si incroyable...",
+        },
+        {
+            Text = "{#Emph}Si beauuuu...",
+        },
+        {
+            Text = "{#Emph}Si intelliiiiiiigent...",
+        },
+        {
+            Text = "{#Emph}Si talentueuuuuuuuuuuuuuuuuuux..",
+        },
+        {
+            Text = "Mais... qui vient parasiter mon reflet?",
+            Emote = "PortraitEmoteSurprise",
+        },
+        {
+            Text = "Comment? ton anniversaire?",
+        },
+        {
+            Text = "Oui bon anniversaire on a compris. tu as perdu l'âge du christ et probablement gagnée une ride en échange",
+        },
+        {
+            Text = "Voici mon cadeau pour toi: me regarder. Qu'elle belle journée pour avoir des yeux je sais...",
+        },
+    }
+    table.insert(game.NarrativeData.NPC_Narcissus_Field_01.InteractTextLinePriorities,1,chatName)
+end
+
 local function OverrideCerberusChat()
     local chatName = _PLUGIN.guid .. '-' .."Cerberus"
 
@@ -278,46 +346,24 @@ local function OverrideCerberusChat()
 
     table.insert(game.NarrativeData.NPC_Cerberus_Field_01.InteractTextLinePriorities,1,chatName)
 end
-OverrideCerberusChat()
-OverrideFrinosChat()
-OverrideDoraChat()
-OverrideHadesChat()
-OverridePersephoneChat()
-OverrideZeusChat()
-OverrideSeleneChat()
-OverrideZagreusChat()
-OverrideCharonChat()
-OverrideNyxChat()
-OverrideDionysusChat()
 
-local function OverrideHermesChat()
-    local chatName = _PLUGIN.guid .. '-' .."Hermes" 
-    game.NarrativeData.NPC_Hermes_01 = {InteractTextLinePriorities = {}}
-    game.EnemyData.NPC_Hermes_01.InteractTextLineSets = {}
-    game.EnemyData.NPC_Hermes_01.InteractTextLineSets[chatName] = {
+
+local function OverrideErisChat()
+    local chatName = _PLUGIN.guid .. '-' .."Eris" 
+    
+    game.EnemyData.NPC_Eris_01.InteractTextLineSets = {}
+    game.EnemyData.NPC_Eris_01.InteractTextLineSets[chatName] = {
 
         Name = chatName,
         GameStateRequirements={},
         {
-            Text = "text",
+            Text = "{#Emph}Si incroyable...",
         },
-    }
-    table.insert(game.NarrativeData.NPC_Hermes_01.InteractTextLinePriorities,1,chatName)
-end
-
-local function OverrideHeraChat()
-    local chatName = _PLUGIN.guid .. '-' .."Hera" 
-    game.NarrativeData.NPC_Hera_Story_01 = {InteractTextLinePriorities = {}}
-    game.EnemyData.NPC_Hera_Story_01.InteractTextLineSets = {}
-    game.EnemyData.NPC_Hera_Story_01.InteractTextLineSets[chatName] = {
-
-        Name = chatName,
-        GameStateRequirements={},
         {
-            Text = "text",
+            Text = "{#Emph}Si beauuuu...",
         },
     }
-    table.insert(game.NarrativeData.NPC_Hera_Story_01.InteractTextLinePriorities,1,chatName)
+    table.insert(game.NarrativeData.NPC_Eris_01.InteractTextLinePriorities,1,chatName)
 end
 
 local function OverrideOdysseusChat()
@@ -333,62 +379,18 @@ local function OverrideOdysseusChat()
     table.insert(game.NarrativeData.NPC_Odysseus_01.InteractTextLinePriorities,1,chatName)
 end
 
-local function OverrideMedeaChat()
-    local chatName = _PLUGIN.guid .. '-' .."Medea"
-    game.EnemyData.NPC_Medea_01.InteractTextLineSets[chatName] = {
-
-        Name = chatName,
-        GameStateRequirements={},
-        {
-            Text = "text",
-        },
-    }
-    table.insert(game.NarrativeData.NPC_Medea_01.InteractTextLinePriorities,1,chatName)
-end
-
-local function OverrideCirceChat()
-    local chatName = _PLUGIN.guid .. '-' .."Circe"
-    game.EnemyData.NPC_Circe_01.InteractTextLineSets[chatName] = {
-
-        Name = chatName,
-        GameStateRequirements={},
-        {
-            Text = "text",
-        },
-        
-    }
-    table.insert(game.NarrativeData.NPC_Circe_01.InteractTextLinePriorities,1,chatName)
-end
-
-local function OverrideNemesisChat()
-    local chatName = _PLUGIN.guid .. '-' .."Nemesis"
-
-    LoadPackages({"Nemesis"})
-    game.EnemyData.NPC_Nemesis_01.InteractTextLineSets[chatName] = {
-
-        Name = chatName,
-        GameStateRequirements={},
-        {
-			Portrait = "Portrait_Nemesis_Averted_01",			
-            Text = "line 1",
-        },
-        {
-			Portrait = "Portrait_Selene_Default_01",			
-            Text = "line 2",
-
-        },
-        {
-			Portrait = "Portrait_Nemesis_Averted_01",			
-            Text = "{#Emph}  line 3 with emph",
-        },
-    }
-    table.insert(game.NarrativeData.NPC_Nemesis_01.InteractTextLinePriorities,1,chatName)
-end
-
-
--- OverrideHeraChat()
--- OverrideHermesChat()
--- OverrideOdysseusChat()
--- OverrideNemesisChat()
--- OverrideMedeaChat()
--- OverrideCirceChat()
+OverrideOdysseusChat()
+OverrideCerberusChat()
+OverrideErisChat()
+OverrideNarcissusChat()
+OverrideFrinosChat()
+OverrideDoraChat()
+OverrideHadesChat()
+OverridePersephoneChat()
+OverrideZeusChat()
+OverrideSeleneChat()
+OverrideZagreusChat()
+OverrideCharonChat()
+OverrideNyxChat()
+OverrideDionysusChat()
+OverrideNemesisChat()
