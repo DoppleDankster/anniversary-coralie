@@ -14,22 +14,27 @@ game.david = mod
 local SpawnData = {
     Frinos = {
         Packages = {"FrogFamiliar"},
-        Offset = {X = -1200,Y = -450},
+        Offset = {X = -3300,Y = -500},
         UnitName = "FrogFamiliar",
-        TableData = game.EnemyData.FrogFamiliar
+        TableData = game.EnemyData.FrogFamiliar,
+        Angle = 70,
+        Scale = 4,
     },
     Nyx = {
         Packages = {"Nyx"},
         Offset = {X = -550,Y = 350},
         UnitName = "NPC_Nyx_Story_01",
-        TableData = game.EnemyData.NPC_Nyx_Story_01
+        TableData = game.EnemyData.NPC_Nyx_Story_01,
+        Angle= 120
     },
 
     Cerberus = {
         Packages = {"Cerberus","Hades","BiomeI"},
-        Offset = {X = mod.EasySpawnX,Y = mod.EasySpawnY},
+        Offset = {X = 1350,Y = 0},
         UnitName = "NPC_Cerberus_Field_01",
-        TableData = game.EnemyData.NPC_Cerberus_Field_01
+        TableData = game.EnemyData.NPC_Cerberus_Field_01,
+        Scale = 0.8,
+        Angle = 140
     },
     Zagreus = {
         Packages = {"Zagreus","BiomeC"},
@@ -45,7 +50,7 @@ local SpawnData = {
     },
     Hades = {
         Packages = {"Hades","BiomeI"},
-        Offset = {X = -200,Y = -250},
+        Offset = {X = 300,Y = -250},
         UnitName = "NPC_Hades_02",
         TableData = game.EnemyData.NPC_Hades_02
     },
@@ -60,12 +65,6 @@ local SpawnData = {
         Offset = {X = -3500,Y = 600},
         UnitName = "NPC_Persephone_01",
         TableData = game.EnemyData.NPC_Persephone_01
-    },
-    Artemis = {
-        Packages = {"Artemis","BiomeF"},
-        Offset = {X = -2700,Y = 400},
-        UnitName = "NPC_Artemis_01",
-        TableData = game.EnemyData.NPC_Artemis_01
     },
     Dionysus = {
         Packages = {"Dionysus","BiomeP"},
@@ -138,12 +137,14 @@ function mod.Spawn(name)
     game.SetupUnit(newUnit, game.CurrentRun, { IgnoreAI = true, PreLoadBinks = true, IgnoreAssert = true, })
     SpawnData[name].ObjectId = newUnit.ObjectId
     if name == "Cerberus" then
-        SetScale({Id = newUnit.ObjectId, Fraction = 0.4}) 
+        SetScale({Id = newUnit.ObjectId, Fraction = entry.Scale}) 
+        SetAngle({Id=newUnit.ObjectId, Angle=entry.Angle})
     end
 
     if name == "Frinos" then
         LoadPackages({Names = {customFrinosPackage}})
-        SetScale({Id = newUnit.ObjectId, Fraction = 4}) 
+        SetScale({Id = newUnit.ObjectId, Fraction = entry.Scale}) 
+        SetAngle({Id=newUnit.ObjectId, Angle=entry.Angle})
     end
 
     if name ~= "Artemis" then
@@ -153,9 +154,6 @@ function mod.Spawn(name)
         LoadPackages({Names = { _PLUGIN.guid .. "Adolf"}})
     end
     
-    if name == "Artemis" then
-        SetAngle({Id=newUnit.ObjectId, Angle=180})
-    end
     CheckAvailableTextLines(newUnit)
 end
 
@@ -185,7 +183,36 @@ function mod.InitCrossroad()
 	} )
 end
 
+function mod.DestroyBase()
+	local InspectPointPriority =
+		{
+            "NPC_Artemis_01",
+            "NPC_Eris_01",
+            "NPC_Moros_01",
+            "NPC_Hecate_01",
+            "NPC_Hecate_01",
+            "DeerStatue01",
+		}
+        
+    for _, pointId in pairs(InspectPointPriority) do
+        Destroy({Ids = GetIdsByType({ Name = pointId })})
+    end
+    local witches = {742272, 575859,575867,575866,575860,576153,576155}
+    for _, value in pairs(witches) do
+        Destroy({Id=value})
+    end
+end
+
 -- Run the Init Function when the room is loaded
+table.insert(game.HubRoomData.Hub_Main.OnLoadEvents,{FunctionName = _PLUGIN.guid .. "." .. "DestroyBase"})
 table.insert(game.HubRoomData.Hub_Main.OnLoadEvents,{FunctionName = _PLUGIN.guid .. "." .. "InitCrossroad"})
 
+
+modutil.mod.Path.Wrap("DeathAreaRoomTransition", function(base, source, args)
+  base(source, args)
+  if game.CurrentHubRoom.Name == "Hub_Main" then
+    mod.DestroyBase()
+    mod.InitCrossroad()
+  end
+end)
 
