@@ -5,7 +5,7 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "DoppleDankster"
 name = "BirthdayParty"
-versionNumber = "1.0.0"
+versionNumber = "1.0.1"
 description = "BirthdayMod"
 websiteUrl = "https://github.com/DoppleDankster/anniversary-coralie"
 containsNsfwContent = false

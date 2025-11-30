@@ -2,7 +2,7 @@
   "namespace": "DoppleDankster",
   "name": "BirthdayParty",
   "description": "BirthdayMod",
-  "version_number": "1.0.0",
+  "version_number": "1.0.1",
   "dependencies": [
     "Hell2Modding-Hell2Modding-1.0.41",
     "SGG_Modding-ENVY-1.1.0",
