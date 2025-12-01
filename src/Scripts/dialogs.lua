@@ -87,13 +87,57 @@ local function OverrideDionysusChat()
         GameStateRequirements={},
         {
             Portrait = "Portraits_Adolf_01",
-            Text = "text",
+            Text = "Je note ce lieu une étoile.",
+        },
+        {
+            Portrait = "Portraits_Adolf_01",
+            Text = "DISCLAIMER : Toute ressemblance entre la blague précédente — minuscule, inutile et comparable à un ticket de caisse de 2014 — et n’importe quelle personne vivante, morte, fictive ou mythologique serait purement fortuite.",
+        },
+        {
+            Portrait = "Portraits_Adolf_01",
+            Text = "Cette ressemblance serait involontaire, indépendamment de la volonté de l’auteur, du lecteur, des voisins, du destin, du karma, du hasard ou de toute force mystique ou administrative régissant l’univers connu ou inconnu.",
+        },
+        {
+            Portrait = "Portraits_Adolf_01",
+            Text = "La blague ne vise aucune communauté, ethnie, religion, idéologie, groupe politique, club de pétanque, association de quartier ou organisation obscure, passée, présente ou future.",
+        },
+        {
+            Portrait = "Portraits_Adolf_01",
+            Text = "Elle ne doit être interprétée comme aucun soutien, moquerie ciblée, adhésion ou encouragement, direct ou indirect, envers une idéologie vieille, moisie ou condamnée depuis environ huit décennies.",
+        },
+        {
+            Portrait = "Portraits_Adolf_01",
+            Text = "Elle ne cherche pas non plus à minimiser des événements historiques rangés dans la catégorie “trucs à ne vraiment pas refaire”, et dont la page devrait rester bien fermée sous clé.",
+        },
+        {
+            Portrait = "Portraits_Adolf_01",
+            Text = "Aucun animal, végétal, minéral, microbe, champignon, molécule ou meuble en kit n’a été offensé volontairement durant la rédaction. S’ils se sentent visés, c’est un malentendu cosmique.",
+        },
+        {
+            Portrait = "Portraits_Adolf_01",
+            Text = "Toute interprétation politique, philosophique, psychanalytique, sociologique ou astrologique est strictement proscrite et passible d’être visitée par des notaires mécontents armés de tampons “REFUSÉ”.",
+        },
+        {
+            Portrait = "Portraits_Adolf_01",
+            Text = "Le lecteur confirme que ce disclaimer dépasse en lourdeur, densité et inutilité la blague elle-même, laquelle ne contient aucune intention malveillante, discriminatoire, polémique ou vaguement sérieuse.",
+        },
+        {
+            Portrait = "Portraits_Adolf_01",
+            Text = "Tout geste, notamment “lever un bras”, doit être interprété exclusivement comme s’étirer, attraper des chips, dire bonjour ou chasser une mouche. Toute autre interprétation est nulle et non avenue.",
+        },
+        {
+            Portrait = "Portraits_Adolf_01",
+            Text = "En poursuivant sa lecture, le lecteur accepte que l’humour est un terrain glissant mais pas dangereux, que le second degré existe, que le premier degré devrait se calmer, et que l’auteur décline toute responsabilité.",
+        },
+        {
+            Portrait = "Portraits_Adolf_01",
+            Text = "Pouet",
         },
     }
     table.insert(game.NarrativeData.NPC_Dionysus_01.InteractTextLinePriorities,1,chatName)
 end
 
-local function OverrideSeleneChat()
+local function OverrideMedeaChat()
     local chatName = _PLUGIN.guid .. '-' .."Selene"
     game.EnemyData.NPC_Selene_01.InteractTextLineSets[chatName] = {
 
@@ -107,6 +151,29 @@ local function OverrideSeleneChat()
     table.insert(game.NarrativeData.NPC_Selene_01.InteractTextLinePriorities,1,chatName)
 end
 
+
+local function OverrideHypnosChat()
+    local chatName = _PLUGIN.guid .. '-' .."Hypnos"
+    game.EnemyData.NPC_Hypnos_01.InteractTextLineSets[chatName] = {
+
+        Name = chatName,
+        GameStateRequirements={},
+        {
+            Text = "{#Emph} Humppff hmzz Bon mhummpfff",
+        },
+        {
+            Text = "{#Emph} rrhmzZz Anniversaire rzmfhrrhhof",
+        },
+        {
+            Text = "{#Emph} Cora-pfiuffmhh humm-lie",
+        },
+        {
+            Text = "{#Emph} zzZzzZzzzZzzzZzzZz",
+        },
+        
+    }
+    table.insert(game.NarrativeData.NPC_Hypnos_01.InteractTextLinePriorities,1,chatName)
+end
 
 local function OverrideHadesChat()
     local chatName = _PLUGIN.guid .. '-' .."Hades"
@@ -357,30 +424,57 @@ local function OverrideErisChat()
         Name = chatName,
         GameStateRequirements={},
         {
-            Text = "{#Emph}Si incroyable...",
+            Text = "Tu pensais vraiment que je laisserais passer ton anniversaire sans y glisser un peu de chaos?",
         },
         {
-            Text = "{#Emph}Si beauuuu...",
+            Text = "Voyons… c’est presque une fête religieuse pour moi.",
+        },
+        {
+            Text = "Alors écoute : joyeux anniversaire !",
+        },
+        {
+            Text = "Que ton année soit une suite délicieuse d’imprévus absurdes,",
+        },
+        {
+            Text = "des opportunités qui surgissent uniquement quand tu es déjà en retard,",
+        },
+        {
+            Text = "de plans qui s’écroulent puis se réinventent tout seuls, sans que personne ne comprenne comment,pendant que je ricane quelque part.",
+        },
+        {
+            Text = "Et aujourd’hui, si tu déclenches assez de chaos pour que même moi je prenne des notes, considère ta mission accomplie",
         },
     }
     table.insert(game.NarrativeData.NPC_Eris_01.InteractTextLinePriorities,1,chatName)
 end
 
-local function OverrideOdysseusChat()
-    local chatName = _PLUGIN.guid .. '-' .."Odysseus" 
-    game.EnemyData.NPC_Odysseus_01.InteractTextLineSets[chatName] = {
+local function OverrideMedeaChat()
+    local chatName = _PLUGIN.guid .. '-' .."Medea" 
+    game.EnemyData.NPC_Medea_01.InteractTextLineSets[chatName] = {
 
         Name = chatName,
         GameStateRequirements={},
         {
-            Text = "text",
+            Text = "Ah, Sorcière Coco!",
+        },
+        {
+            Text = "Encore une année passée qui te rapproche de la douce mort!",
+        },
+        {
+            Text = "En souhaitant d'expérimenter les recoins les plus surprenants de ton existence de petite humaine et si les Dieux sont grands",
+        },
+        {
+            Text = "que tes enemis puissent succomber aux plus grandes peines lorsqu'ils entravent ton chemin...",
+        },
+        {
+            Text = "Il n'y a rien de mieux qu'un peu de violence pour bien commencer un nouveau cycle, n'est-ce pas?",
         },
     }
-    table.insert(game.NarrativeData.NPC_Odysseus_01.InteractTextLinePriorities,1,chatName)
+    table.insert(game.NarrativeData.NPC_Medea_01.InteractTextLinePriorities,1,chatName)
 end
 
-OverrideOdysseusChat()
 OverrideCerberusChat()
+OverrideMedeaChat()
 OverrideErisChat()
 OverrideNarcissusChat()
 OverrideFrinosChat()
@@ -388,7 +482,7 @@ OverrideDoraChat()
 OverrideHadesChat()
 OverridePersephoneChat()
 OverrideZeusChat()
-OverrideSeleneChat()
+OverrideHypnosChat()
 OverrideZagreusChat()
 OverrideCharonChat()
 OverrideNyxChat()

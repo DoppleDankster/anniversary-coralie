@@ -60,7 +60,7 @@ function mod.InsertAdolfPackage()
     local newEntry ={
         Name = "Portraits_Adolf_01",
         FilePath = _PLUGIN.guid .. "Adolf\\Portraits_Adolf_01",
-        Scale = 3,
+        Scale = 1,
     }
     print(newEntry.Name, newEntry.FilePath)
     local guiPortraitsVFXFile = rom.path.combine(rom.paths.Content(), "Game\\Animations\\GUI_Portraits_VFX.sjson")

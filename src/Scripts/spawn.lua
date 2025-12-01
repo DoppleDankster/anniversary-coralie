@@ -83,7 +83,7 @@ local SpawnData = {
     },
     Narcissus = {
         Packages = {"Narcissus","BiomeH"},
-        Offset = {X = -1250,Y = 1800},
+        Offset = {X = -850,Y = 1800},
         UnitName = "NPC_Narcissus_Field_01",
         Track= false,
         Angle = 120,
@@ -91,10 +91,24 @@ local SpawnData = {
     },
     Eris = {
         Packages = {"Eris"},
-        Offset = {X = -2250,Y = -300},
+        Offset = {X = -2000,Y = -400},
         UnitName = "NPC_Eris_01",
         Track= true,
         TableData = game.EnemyData.NPC_Eris_01
+    },
+    Medea = {
+        Packages = {"Medea","BiomeO"},
+        Offset = {X = 300,Y = 700},
+        UnitName = "NPC_Medea_01",
+        Track= true,
+        TableData = game.EnemyData.NPC_Medea_01
+    },
+    Hypnos = {
+        Packages = {"Hypnos"},
+        Offset = {X = 1000,Y = 700},
+        UnitName = "NPC_Hypnos_01",
+        Track= true,
+        TableData = game.EnemyData.NPC_Hypnos_01
     },
     
 }
@@ -177,7 +191,7 @@ function mod.DestroyBase()
             "NPC_Eris_01",
             "NPC_Moros_01",
             "NPC_Hecate_01",
-            "NPC_Hecate_01",
+            "NPC_Odysseus_01",
             "DeerStatue01",
 		}
         

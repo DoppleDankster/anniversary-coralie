@@ -15,10 +15,7 @@ function sjson_ShellText(data)
 	end
 end
 
-function prefix_SetupMap()
-	print('Map is loading, here we might load some packages.')
-	-- LoadPackages({Name = package_name_string})
-end
+
 
 function trigger_Gift()
 	modutil.mod.Hades.PrintOverhead(config.message)

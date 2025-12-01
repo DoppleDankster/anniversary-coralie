@@ -11,17 +11,6 @@ local file = rom.path.combine(rom.paths.Content, 'Game/Text/en/ShellText.en.sjso
 
 local mod = modutil.mod.Mod.Register(_PLUGIN.guid)
 
-
-sjson.hook(file, function(data)
-	return sjson_ShellText(data)
-end)
-
-
-modutil.mod.Path.Wrap("SetupMap", function(base, ...)
-	prefix_SetupMap()
-	return base(...)
-end)
-
 game.OnControlPressed({'Gift', function()
 	return trigger_Gift()
 end})

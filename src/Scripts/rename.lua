@@ -73,17 +73,21 @@ sjson.hook(charactersFile, function(data)
         end
 
         if entry.Id == "NPC_Dionysus_01"  then
-            entry.DisplayName = "Adrien"
-            entry.Description = "Mécène du Parrain"
+            entry.DisplayName = "A(d)rien"
+            entry.Description = "Godwin's Rule"
         end
 
         if entry.Id == "NPC_Eris_01"  then
             entry.DisplayName = "Chatbrina"
             entry.Description = "Plus chaotique qu'Eris"
         end
-        if entry.Id == "NPC_Odysseus_01"  then
-            entry.DisplayName = "Lulu"
-            entry.Description = "Berlu"
+        if entry.Id == "NPC_Medea_01"  then
+            entry.DisplayName = "Kimiya"
+            entry.Description = "Necromancie de la raison pure"
+        end
+        if entry.Id == "NPC_Hypnos_01"  then
+            entry.DisplayName = "Le Roi du duvet"
+            entry.Description = ""
         end
         
     end
