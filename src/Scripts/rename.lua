@@ -1,5 +1,5 @@
 
-local charactersFile = rom.path.combine(rom.paths.Content(), "Game\\Text\\en\\HelpText.en.sjson")
+local charactersFile = rom.path.combine(rom.paths.Content(), "Game\\Text\\fr\\HelpText.fr.sjson")
 
 sjson.hook(charactersFile, function(data)
     table.insert(data.Texts, {
